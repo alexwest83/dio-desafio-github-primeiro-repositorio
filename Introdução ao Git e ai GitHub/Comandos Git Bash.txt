@@ -1,0 +1,47 @@
+Clonar repositório
+	git close "link do repositório"
+   Exemplo:
+	git clone https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git
+
+Acessar a pasta do repositório
+	cd "repositório"
+   Exemplo:
+	cd dio-desafio-github-primeiro-repositorio.git
+
+Verificar status
+	git status
+
+Criar atualização no repositório local
+	git add .	
+   (ou)		
+	git add -A
+
+Commitar atualização para o repositório web
+	git commit
+   (ou)
+	git commit -m "O -m indica mensagem, e a mensagem deve estar entre áspas, como este exemplo"
+	git commit -m "Inclusão das anotaçãos docurso de Git/GitHub"
+
+O Git pode requisitar credenciais, neste caso é necessário efetuar login e identificar usuário
+
+Efetuar login
+	git config --global user.email "seu email"
+	git config --global user.email ads.alexwestsls@gmail.com
+
+Identificar usuário
+	git config --global user.name "Alexandre Westphal"
+
+Após, repita o comando git commit preferencialmente usando mensagem
+	git commit -m "sua mensagem"
+Verifique a alteração 
+	git status
+Efetue o envio
+	git push -u origin main
+
+Pronto
+
+É possível verificar se tudo ocorreu bem via status novamente
+	git status
+
+Deve aparecer uma mensagem semelhante abaixo
+	
