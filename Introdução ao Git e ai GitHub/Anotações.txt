@@ -1,2 +1,280 @@
 Link para download do Git: https://git-scm.com/downloads
 O Gt Bash é um terminal extendido para otimizar o uso do Git.
+
+
+Tive problemas para upar os arquivos editados no Git com os comandos do professor Falvojr
+Precisei executar os seguintes comandos para obter sucesso
+
+	git config --global user.email "you@example.com"
+	git config --global user.name "Your Name"
+
+No caso os comandos abaixo
+
+	git config --global user.email ads.alexwestsls@gmail.com
+	git config --global user.name "Alexandre Westphal"
+	
+Ao executar o primerio comando o Git solicita logon
+Usei a opção via browser
+
+Mesmo após este procedimento não obtive sucesso, foi necessário outros comandos
+
+git push
+git pull --rebase origin main
+git config --global pull.rebase true
+git config --global rebase.autoStash true
+git push -u origin main
+git push
+
+Os comandos foram executados conforme mostrado no forum stackoverflow, link abaixo
+https://stackoverflow.com/questions/24114676/git-error-failed-to-push-some-refs-to-remote?newreg=87a7d5b30a1f45d4b1b755f22d1b3b0f
+
+Abaixo segue o desfeicho dos comandos e retornos do terminal
+_________________________________________________________________________________________________________________
+
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO
+$ git clone https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git
+Cloning into 'dio-desafio-github-primeiro-repositorio'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 18 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (18/18), 5.37 KiB | 1.34 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO
+$ cd dio-desafio-github-primeiro-repositorio/
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        "Introdu\303\247\303\243o ao Git e ai GitHub/"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git add .
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   "Introdu\303\247\303\243o ao Git e ai GitHub/Anota\303\247\303\265es.txt"
+
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git commit -m "Inclusão das anotaçãos docurso de Git/GitHub"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'dev@NOTE-POINTER.(none)')
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git commit -m "Inclusão das anotaçãos do curso de Git/GitHub"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'dev@NOTE-POINTER.(none)')
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ ^C
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git config --global user.email ads.alexwest@gmail.com
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git config --global user.name "Alexandre Westphal"
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git commit -m "Inclusão das anotaçãos do curso de Git/GitHub"
+[main 41fa048] Inclusão das anotaçãos do curso de Git/GitHub
+ 1 file changed, 2 insertions(+)
+ create mode 100644 "Introdu\303\247\303\243o ao Git e ai GitHub/Anota\303\247\303\265es.txt"
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin man
+error: src refspec man does not match any
+error: failed to push some refs to 'https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git'
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin man
+error: src refspec man does not match any
+error: failed to push some refs to 'https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git'
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin man
+error: src refspec man does not match any
+error: failed to push some refs to 'https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git'
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin man
+error: src refspec man does not match any
+error: failed to push some refs to 'https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git'
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin/man
+fatal: 'origin/man' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin man
+error: src refspec man does not match any
+error: failed to push some refs to 'https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git'
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ ^C
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git checkout alexwest83
+error: pathspec 'alexwest83' did not match any file(s) known to git
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git checkout git pull --rebase origin main
+error: unknown option `rebase'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --[no-]guess          second guess 'git checkout <no-such-branch>' (default)
+    --[no-]overlay        use overlay mode (default)
+    -q, --[no-]quiet      suppress progress reporting
+    --[no-]recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --[no-]progress       force progress reporting
+    -m, --[no-]merge      perform a 3-way merge with the new branch
+    --[no-]conflict <style>
+                          conflict style (merge, diff3, or zdiff3)
+    -d, --[no-]detach     detach HEAD at named commit
+    -t, --[no-]track[=(direct|inherit)]
+                          set branch tracking configuration
+    -f, --[no-]force      force checkout (throw away local modifications)
+    --[no-]orphan <new-branch>
+                          new unborn branch
+    --[no-]overwrite-ignore
+                          update ignored files (default)
+    --[no-]ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --[no-]patch      select hunks interactively
+    --[no-]ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --[no-]pathspec-from-file <file>
+                          read pathspec from file
+    --[no-]pathspec-file-nul
+                          with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ gut push
+bash: gut: command not found
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 498 bytes | 498.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git
+   4e45844..41fa048  main -> main
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git pull --rebase origin main
+From https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push origin man
+error: src refspec man does not match any
+error: failed to push some refs to 'https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git'
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git config --global pull.rebase true
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git config --global rebase.autoStash true
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push -u origin main
+Everything up-to-date
+branch 'main' set up to track 'origin/main'.
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$ git push
+Everything up-to-date
+
+dev@NOTE-POINTER MINGW64 ~/Git/DIO/dio-desafio-github-primeiro-repositorio (main)
+$
+
