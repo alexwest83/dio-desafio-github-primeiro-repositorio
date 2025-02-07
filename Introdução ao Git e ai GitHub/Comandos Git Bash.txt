@@ -3,6 +3,10 @@ Clonar repositório
    Exemplo:
 	git clone https://github.com/alexwest83/dio-desafio-github-primeiro-repositorio.git
 
+	Comandos iguais ao CMD
+		ver diretório		DIR
+		navegar para a pasta 	CD DIR
+
 Acessar a pasta do repositório
 	cd "repositório"
    Exemplo:
@@ -33,6 +37,8 @@ Identificar usuário
 
 Após, repita o comando git commit preferencialmente usando mensagem
 	git commit -m "sua mensagem"
+Repita o comando para adicionar todos arquivos e alterações
+	git add .
 Verifique a alteração 
 	git status
 Efetue o envio
@@ -44,4 +50,8 @@ Pronto
 	git status
 
 Deve aparecer uma mensagem semelhante abaixo
+	On branch main
+	Your branch is up to date with 'origin/main'.
+
+	nothing to commit, working tree clean
 	
